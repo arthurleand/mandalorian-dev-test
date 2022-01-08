@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../model/Task';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  task: Task = new Task()
+  listKey: Task[]
+  
+  constructor(
+    private service: TaskService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(){
+    this.getAllKeys()
   }
 
+  getAllKeys(){
+    this.service.getAll().subscribe((resp: Task[])=>{
+      this.listKey= resp
+    }) 
+  }
 }

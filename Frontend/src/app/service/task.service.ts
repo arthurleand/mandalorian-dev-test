@@ -14,12 +14,12 @@ export class TaskService {
     return this.http.get<Task[]>('http://localhost:8080/api')
   }
   getByKey(key: string):Observable<Task>{
-    return this.http.get<Task>('http://localhost:8080/api/task/${key}')
+    return this.http.get<Task>(`http://localhost:8080/api/task/${key}`)
   }
   post(task: Task):Observable<Task>{
     return this.http.post<Task>('http://localhost:8080/api/add/task', task)
   }
   delete(key: string){
-    return this.http.delete('http://localhost:8080/api/task/${key}')
+    return this.http.delete(`http://localhost:8080/api/task/${key}`)
   }
 }
