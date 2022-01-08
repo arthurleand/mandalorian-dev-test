@@ -1,0 +1,34 @@
+ul.socialNetwork{
+    list-style: none;
+    padding: 0;
+}
+ul.socialNetwork li{
+    display: inline;
+    margin: 0%;
+    padding: 5px;
+}
+
+.fa{
+    font-size: 20pt;
+    color: #575556;
+    padding-left: 3px;
+}
+
+.fa-github-square:hover{
+    color: #000000;
+}
+.fa-instagram:hover{
+    color: #C13584;
+}
+.fa-linkedin-square:hover{
+    color: #0072b1;
+}
+.bgradiente{
+    background-image: radial-gradient(circle, #8addf5, #8ad3fa, #93c7fb, #a4baf6, #b7aceb);
+}
+.bg-footer{
+    background-color: #575556;
+}
+.text-footer{
+    color: #575556;
+}
