@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Task } from '../model/Task';
 import { TaskService } from '../service/task.service';
 
@@ -15,8 +14,7 @@ export class HomeComponent implements OnInit {
   
   constructor(
     private service: TaskService,
-    private route: Router
-
+  
   ) { }
 
   ngOnInit(){
