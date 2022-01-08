@@ -20,12 +20,49 @@
                         </tr>
                       </tbody>
                     </table>
-                <a href="#" class="btn btn-home btn-lg btn-block text-dark">Adicionar tarefa</a>
+                <a href="#" class="btn btn-home btn-lg btn-block text-dark" data-toggle="modal" data-target="#exampleModal">Adicionar tarefa</a>
               </div>
             </div>
       </div>
       <div class="col-md-6 d-flex justify-content-center">
           <img src="https://i.imgur.com/fJss56G.png"  width="500px" height="500px"/>
       </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Criar Tarefa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+              <label>Chave</label>
+              <input [(ngModel)]='task.key' type="text" name="key" class="form-control" id="chave"
+                  placeholder="Insira uma chave">
+          </div>
+          <div class="form-group">
+              <label>Tarefa</label>
+              <input required minlength="10"
+                  onkeypress="return (event.charCode > 47 && event.charCode < 58) || (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32);"
+                  [(ngModel)]='task.value' name="value" type="text" class="form-control"
+                  placeholder="Insira um valor">
+              <small class="form-text text-muted">O valor deve conter pelo menos 10
+                  caracteres e sem caracteres especiais.</small>
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <a data-dismiss="modal" class="btn btn-home text-dark"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+          Voltar</a>
+        <button type="button"  class="btn btn-modal" (click)='createTask()'><i class="fa fa-plus" aria-hidden="true" ></i> Criar</button>
+      </div>
+    </div>
   </div>
 </div>

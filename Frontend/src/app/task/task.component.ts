@@ -10,10 +10,11 @@ import { TaskService } from '../service/task.service';
 })
 export class TaskComponent implements OnInit {
 
-  tarefa: Task = {
+  task: Task = {
     key: "",
     value: ""
   }
+  key:string
 
   constructor(
     private service: TaskService,
@@ -22,10 +23,17 @@ export class TaskComponent implements OnInit {
   ) { }
   
   ngOnInit(){
-    const key = this.route.snapshot.params['key']
-    console.log(key)
-    this.service.getByKey(key).subscribe(task => {
-      this.tarefa = task
+    this.key = this.route.snapshot.params['key']
+    this.service.getByKey(this.key).subscribe(task => {
+      this.task = task
+      console.log(this.key)
+    })
+  }
+  delete(){
+    
+    this.service.delete(this.key).subscribe(()=>{
+      alert('Tarefa Encerrada!!')
+      this.router.navigate(['/home'])
     })
   }
 
